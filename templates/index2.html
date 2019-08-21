@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index 2</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css">
+    <!-- <link rel="script" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js">
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js"></script>
+     -->
+
+    <style> ui.right.labeled.input{padding: 20px;}
+    ui.segment{margin-top: 20px}</style>
+</head>
+
+<body>
+
+<!---
+ <div class="ui celled grid">
+  <div class="row">
+    <div class="three wide column">
+      <img>
+    </div>
+    <div class="thirteen wide column">
+      <p></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="three wide column">
+      <img>
+    </div>
+    <div class="ten wide column">
+      <p></p>`
+    </div>
+    <div class="three wide column">
+      <img>
+    </div>
+  </div>
+</div>
+-->
+<table class="ui single line table">
+    <thead>
+    <tr>
+        <th>
+            <table class="ui single line table">
+                <tr>
+                    <h5 class="ui header inline " id = "left_year_label">Find Year</h5>
+
+                    <div class="ui container">
+                        <select class="ui dropdown search selection " name="yearDropdown" id="left_year_dropdown">
+                            <option class="item"  id = '2019' value="2019">2019</option>
+                            <option class="item"  id = '2018' value="2018">2018</option>
+                            <option class="item"  id = '2017' value="2017">2017</option>
+                            <option class="item"  id = '2016' value="2016">2016</option>
+                            <option class="item"  id = '2015' value="2015">2015</option>
+                            <option class="item"  id = '2014' value="2014">2014</option>
+                            <option class="item"  id = '2013' value="2013">2013</option>
+                            <option class="item"  id = '2012' value="2012">2012</option>
+                            <option class="item"  id = '2011' value="2011">2011</option>
+                            <option class="item"  id = '2010' value="2010">2010</option>
+                            <option class="item"  id = '2009' value="2009">2009</option>
+                            <option class="item"  id = '2008' value="2008">2008</option>
+                            <option class="item"  id = '2007' value="2007">2007</option>
+                            <option class="item"  id = '2006' value="2006">2006</option>
+                            <option class="item"  id = '2005' value="2005">2005</option>
+                            <option class="item"  id = '2004' value="2004">2004</option>
+                            <option class="item"  id = '2003' value="2003">2003</option>
+                            <option class="item"  id = '2002' value="2002">2002</option>
+                            <option class="item"  id = '2001' value="2001">2001</option>
+                            <option class="item"  id = '2000' value="2000">2000</option>
+
+
+                        </select>
+
+
+                    </div>
+                </tr>
+                <tr>
+                    <h5 class="ui header inline" id="left_event_label">Find Event</h5>
+                    <div class="ui container">
+                        <select class="ui search selection dropdown" name="yearDropdown" id="left_event_dropdown">
+                            <option class="item" value="team1">Choose Event</option>
+
+                        </select>
+
+
+                    </div>
+                </tr>
+                <tr>
+                    <h5 class="ui header inline" id="left_team_lable">Find Team</h5>
+                    <div class="ui container">
+                        <select class="ui search selection dropdown" name="yearDropdown" id="left_team_dropdown" onclick="leftTeamDropDownClick()">
+                            <option class="item" value="team1">Choose Team</option>
+
+                        </select>
+
+
+                    </div>
+                </tr>
+            </table>
+        </th>
+        <th>
+
+            <table class="ui single line table">
+                <tr>
+                    <h5 class="ui header inline" id="right_event_label">Find Event</h5>
+                    <div class="ui action input">
+                        <input type="text" placeholder="Search..." id="right_event_code_textBox">
+                        <button class="ui button" id="right_event_code_button">Search Event Code</button>
+                    </div>
+                </tr>
+                <tr>
+                    <h5 class="ui header inline " id="right_team_label">Find Team</h5>
+                    <div class="ui container">
+                        <select class="ui search selection dropdown" name="yearDropdown" id="right_team_dropdown" onclick="leftYearDropDownClick('right_team_dropdown')">
+                            <option class="item" value="team1">team1</option>
+                            <option class="item">team2</option>
+                            <option class="item">team3</option>
+                        </select>
+
+
+                    </div>
+
+
+                </tr>
+
+            </table>
+
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <table class="ui single line table">
+            <tr>
+                <th>
+
+                    <div class="ui form">
+                        <div class="inline fields">
+                            <label>What type of schedule do you want?</label>
+                            <div class="field">
+                                <div class="ui radio checkbox">
+                                    <input type="radio" name="frequency" checked="checked" id="blank_schedule_radiobutton">
+                                    <label>Blank Schedule</label>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="ui radio checkbox">
+                                    <input type="radio" name="frequency" id="team_highlighted_full_schedule_radiobutton">
+                                    <label>Team Highlighted Full Schedule</label>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="ui radio checkbox">
+                                    <input type="radio" name="frequency" id="team_only_highlighted_full_schedule_radiobutton">
+                                    <label>Team only matches highlighted</label>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="ui radio checkbox">
+                                    <input type="radio" name="frequency" id="team_only_not_highlighted_full_schedule_radiobutton">
+                                    <label>Team only matches not highlighted</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="ui primary button">
+                        GO!
+                    </button>
+
+
+                </th>
+            </tr>
+
+        </table>
+
+    </tr>
+    </tbody>
+</table>
+
+
+
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.js"></script>
+
+<script>
+
+$('#left_year_dropdown').dropdown()
+   // $('.ui.dropdown').dropdown({fullTextSearch:true});
+    var testAppend = "<option class=\"item\">IDEK</option>"
+    //$('#left_year_dropdown').append(leftYearDropdownFillOptions())
+   // $('#left_event_dropdown').append(leftEventLoadOptions())
+    //$('#left_team_dropdown').append(leftEventLoadOptions())
+    function createOptionTags(option_text,option_value) {
+        // return "'<option class="item" value= 'option_value'>option_text</option>'"p
+        return "<option class=\"item\" value="+option_value.toString()+ ">" + option_text.toString()+"</option>"
+        //return "<option class=\"item\">team3</option>"
+
+    }
+
+    function leftYearDropdownFillOptions(){
+        var text = '';
+        for(var i = 0; i < 10; i ++){
+            text += createOptionTags(i,i)
+        }
+        return text
+    }
+
+    var eventsHtml = "";
+    var test = "";
+
+
+   // $('#left_event_dropdown').dropdown
+
+   // $('#left_event_dropdown').dropdown(function () {
+   //     leftEventLoadOptions();
+   // });
+    $('#left_event_dropdown').dropdown({
+        onChange: function () {
+            console.log("IM HITTING THIS")
+        }
+    });
+    //$('#left_event_dropdown').dropdown('setting','onChange', leftEventLoadOptions)
+
+
+    function leftEventLoadOptions(){
+        deleteChild('left_event_dropdown')
+        var request = new XMLHttpRequest()
+        var yearDropdown = document.getElementById('left_year_dropdown');
+        var yearSelected = yearDropdown.options[yearDropdown.selectedIndex].value;
+        var selectedYear = $('#left_year_dropdown option:selected').text();
+        console.log("YEAR SELECTED: " + yearSelected)
+        var apiCall = request.open('GET', 'http://127.0.0.1:5000/getEventsFromYear/' + yearSelected ,'true')
+        request.onload= function()
+        {
+            var data = JSON.parse(this.response)
+            console.log(data)
+
+            if(request.status >= 200 && request.status <400)
+            {
+                for(var i = 0 ; i < data.length; i ++){
+                    var option = document.createElement("option")
+                    option.value = data[i]['event_key']
+                    option.text = data[i]['name']
+                    option.setAttribute('class', 'item')
+                   // var event_name = data[i]['name'];
+                    //var event_key = data[i]['event_key'];
+                    document.getElementById('left_event_dropdown').append(option)
+                    // eventsHtml+= "<option class = 'item' value='"   +   event_key    +    "'>"+event_name+"  </option>";
+                    //eventsHtml += createOptionTags(event_name,event_key   )
+                    //test += createOptionTags(event_name,event_key   )
+                     //console.log(createOptionTags(event_name,event_key))
+                    // document.write( "<option class = 'item' value=" +   event_key    +   "'>"+event_name+"  </option>");
+                }
+                //console.log("THIS IS AFTER FOR LOOP" + eventsHtml)
+
+                // data.forEach( event => {
+                //     eventsHtml += "<option class = 'item' value='"+event.event_code+"'>"+event.name+"          </option>";
+                // })
+            }
+            else{
+                console.log("error")
+            }
+
+
+
+        }
+        document.write(eventsHtml);
+        var eventInfo = request.send(apiCall)
+        console.log(eventInfo)
+        console.log(eventsHtml)
+        //document.getElementById('left_event_dropdown').appendChild(eventsHtml);
+console.log(request)
+        return eventInfo
+        test = request.response
+        document.write(test)
+    }
+
+    function deleteChild(tagId) {
+        var e = document.getElementById(tagId);
+
+        //e.firstElementChild can be used.
+        var child = e.lastElementChild;
+        while (child) {
+            e.removeChild(child);
+            child = e.lastElementChild;
+        }
+    }
+
+    function leftTeamDropDownClick(){
+        var eventDropdown = document.getElementById('left_year_dropdown');
+        var eventSelected = eventDropdown.options[eventDropdown.selectedIndex].value;
+        console.log(eventSelected)
+    }
+
+</script>
+
+</html>
